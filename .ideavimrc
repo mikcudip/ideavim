@@ -1,3 +1,5 @@
+imap jk <Esc>
+
 " leader key
 let mapleader = ' '
 
@@ -144,3 +146,9 @@ map <leader>nd <Action>(NewDir)
 map <leader>re <Action>(RenameFile)
 map <leader>of <Action>(OpenFile)
 map <leader>ri <Action>(RestartIde)
+
+map <leader>ef <Action>(ActivateProjectToolWindow)
+map cl <Action>(CommentByLineComment)
+map cb <Action>(CommentByBlockComment)
+
+map <leader><leader> <Action>(GotoFile)
