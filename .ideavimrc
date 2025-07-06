@@ -1,15 +1,3 @@
-" left
-noremap j h
-
-" down
-noremap k j
-
-" up
-noremap l k
-
-" right
-noremap ; l
-
 " leader key
 let mapleader = ' '
 
@@ -70,26 +58,28 @@ map b [b
 map ge ]b
 
 " go to the left split
-map <A-j> <C-w>h
+map <A-h> <C-w>h
 
 " go to the bottom split
-map <A-k> <C-w>j
+map <A-j> <C-w>j
 
 " go to the top split
-map <A-l> <C-w>k
+map <A-k> <C-w>k
 
 " go to the right split
-map <A-;> <C-w>l
+map <A-l> <C-w>l
 
-map <leader>wv <Action>(SplitVertically)
-map <leader>wh <Action>(SplitHorizontally)
-map <leader>ww <Action>(Unsplit)
-map <leader>wa <Action>(UnsplitAll)
+map <leader>sl <Action>(SplitVertically)
+map <leader>sj <Action>(SplitHorizontally)
+map <leader>sk <Action>(SplitVertically)
+map <leader>sh <Action>(SplitHorizontally)
+map <leader>su <Action>(Unsplit)
+map <leader>sa <Action>(UnsplitAll)
 
-map <leader>sc <Action>(GotoClass)
-map <leader>sf <Action>(GotoFile)
-map <leader>ss <Action>(GotoSymbol)
-map <leader>sa <Action>(GotoAction)
+map <leader>gc <Action>(GotoClass)
+map <leader>gf <Action>(GotoFile)
+map <leader>gs <Action>(GotoSymbol)
+map <leader>ga <Action>(GotoAction)
 map <leader>gd <Action>(GotoDeclaration)
 map <leader>gy <Action>(GotoTypeDeclaration)
 map <leader>gi <Action>(GotoImplementation)
@@ -103,7 +93,7 @@ map <leader>vs <Action>(ViewSource)
 map <leader>im <Action>(QuickImplementations)
 map <leader>td <Action>(QuickTypeDefinition)
 map <leader>ti <Action>(ExpressionTypeInfo)
-map <leader>sh <Action>(ShowHoverInfo)
+map <leader>gh <Action>(ShowHoverInfo)
 map <leader>oo <Action>(FileStructurePopup)
 
 map <S-f> <Action>(Find)
@@ -134,7 +124,7 @@ map <S-l> <Action>(Back)
 map <A-[> <Action>(MethodUp)
 map <A-]> <Action>(MethodDown)
 
-map <leader><leader> <Action>(ReformatCode)
+map <leader>fd <Action>(ReformatCode)
 map <leader>oi <Action>(OptimizeImports)
 map <leader>ra <Action>(RearrangeCode)
 
