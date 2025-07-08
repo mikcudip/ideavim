@@ -116,8 +116,8 @@ map <leader>oi <Action>(OptimizeImports)
 map <leader>ra <Action>(RearrangeCode)
 
 " -- Line/Statement Movement --
-map <C-k> <Action>(MoveLineDown)
-map <C-l> <Action>(MoveLineUp)
+map <C-k> <Action>(MoveLineUp)
+map <C-j> <Action>(MoveLineDown)
 map <C-i> <Action>(MoveStatementDown)
 map <C-o> <Action>(MoveStatementUp)
 
@@ -135,6 +135,7 @@ map <leader>of <Action>(OpenFile)
 map <leader>qq <Action>(CloseContent)
 map <leader>qa <Action>(CloseAllEditors)
 map <leader>ef <Action>(SelectInProjectView)
+map <C-s> <Action>:w<CR>
 
 " -- Comments --
 map <leader>cl <Action>(CommentByLineComment)
@@ -174,3 +175,7 @@ map <leader>dl <Action>(Rerun)
 " Debug advanced
 map <leader>df <Action>(Debugger.FocusOnBreakpoint)
 map <leader>dh <Action>(QuickEvaluateExpression)
+
+"" -- Code Actions and Intentions --
+" Show intention actions (equivalent to Alt+Enter)
+map <leader>aa <Action>(ShowIntentionActions)
