@@ -85,7 +85,7 @@ map <leader>lc <Action>(JumpToLastChange)
 map <leader>ll <Action>(RecentLocations)
 
 " History navigation
-map <C-;> <Action>(RecentFiles)
+map <C-Tab> <Action>(RecentFiles)
 map <S-l> <Action>(Back)
 map <A-[> <Action>(MethodUp)
 map <A-]> <Action>(MethodDown)
