@@ -179,3 +179,9 @@ map <leader>dh <Action>(QuickEvaluateExpression)
 "" -- Code Actions and Intentions --
 " Show intention actions (equivalent to Alt+Enter)
 map <leader>aa <Action>(ShowIntentionActions)
+
+" -- Layout Management --
+map <leader>ly <Action>(LayoutsGroup)
+map <leader>lt <Action>(ChangeToolWindowLayout)
+map <leader>ls <Action>(StoreNewLayout)
+map <leader>lr <Action>(RestoreDefaultLayout)
