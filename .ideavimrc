@@ -1,11 +1,7 @@
-" -- Basic Configuration --
-imap jk <Esc>
-
-" Leader key
-let mapleader = ' '
-
-" Vim settings
-set clipboard^=unnamed
+" ========================================
+"              BASIC SETTINGS
+" ========================================
+set clipboard+=unnamedplus
 set matchpairs+=<:>
 set ideajoin
 set hlsearch
@@ -13,50 +9,52 @@ set ignorecase
 set smartcase
 set incsearch
 
-" -- Custom Key Mappings --
-" Move to the next character occurrence
-noremap ' ;
+" Map <jk> to <Esc> in insert mode (salida rápida)
+imap jk <Esc>
 
+" Leader key
+let mapleader = ' '
+
+" ========================================
+"              GENERAL MAPPINGS
+" ========================================
 " Redo
 noremap U <C-r>
 
-" Map black whole register
+" Use black hole register for deletes
 noremap \ "_
 
-" Paste over without overwriting default register
+" Paste over visual selection without overwriting default register
 xnoremap p P
 
-" Remove search highlights
-nnoremap <Esc> :nohlsearch<cr>
+" Clear search highlights with Escape
+nnoremap <Esc> :nohlsearch<CR>
 
-" -- Word Movement (CamelCase aware) --
-" Move to the beginning of the next word
-map w [w
+" Smart character motion
+noremap ' ;
 
-" Move to the end of the next word
-map e ]w
-
-" Move to the beginning of the previous word
-map b [b
-
-" Move to the end of the previous word
+" CamelCase word motions
+map w  [w
+map e  ]w
+map b  [b
 map ge ]b
 
-" -- Window/Split Management --
-" Navigate splits
+" ========================================
+"            WINDOW / SPLIT NAV
+" ========================================
 map <A-h> <C-w>h
 map <A-j> <C-w>j
 map <A-k> <C-w>k
 map <A-l> <C-w>l
 
-" Split actions
 map <leader>sl <Action>(SplitVertically)
 map <leader>sj <Action>(SplitHorizontally)
 map <leader>su <Action>(Unsplit)
 map <leader>sa <Action>(UnsplitAll)
 
-" -- Navigation --
-" Go to actions
+" ========================================
+"             NAVIGATION
+" ========================================
 map <leader>gc <Action>(GotoClass)
 map <leader>gf <Action>(GotoFile)
 map <leader>gs <Action>(GotoSymbol)
@@ -68,7 +66,6 @@ map <leader>gt <Action>(GotoTest)
 map <leader>gm <Action>(GotoSuperMethod)
 map <leader>gl <Action>(GotoLine)
 
-" Usage and information
 map <leader>ug <Action>(FindUsages)
 map <leader>uu <Action>(ShowUsages)
 map <leader>vs <Action>(ViewSource)
@@ -84,45 +81,58 @@ map <leader>ep <Action>(GotoPreviousError)
 map <leader>lc <Action>(JumpToLastChange)
 map <leader>ll <Action>(RecentLocations)
 
-" History navigation
+" History
 map <leader><leader> <Action>(RecentFiles)
 map <S-l> <Action>(Back)
 map <A-[> <Action>(MethodUp)
 map <A-]> <Action>(MethodDown)
 
-" -- Search and Replace --
+" ========================================
+"          SEARCH & REPLACE
+" ========================================
 map <S-f> <Action>(Find)
 map <S-r> <Action>(Replace)
 map <leader>ff <Action>(FindInPath)
 map <leader>fr <Action>(ReplaceInPath)
 
-" -- Refactoring --
-map <leader>rn <Action>(RenameElement)
-map <leader>rm <Action>(ExtractMethod)
-map <leader>rv <Action>(IntroduceVariable)
-map <leader>rf <Action>(IntroduceField)
-map <leader>rs <Action>(ChangeSignature)
-map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+" ========================================
+"           REFACTORING
+" ========================================
+map <leader>rn  <Action>(RenameElement)
+map <leader>rem <Action>(ExtractMethod)
+map <leader>rv  <Action>(IntroduceVariable)
+map <leader>rf  <Action>(IntroduceField)
+map <leader>rs  <Action>(ChangeSignature)
+map <leader>rr  <Action>(Refactorings.QuickListPopupAction)
+map <leader>rm  <Action>(RefactoringMenu)
 
-" -- Code Actions --
+" ========================================
+"          CODE ACTIONS / INTENTIONS
+" ========================================
 map <leader>aa <Action>(ShowIntentionActions)
 map <leader>sw <Action>(SurroundWith)
 map <S-space> <Action>(Generate)
 imap <S-space> <Action>(Generate)
 map <C-[> <Action>(EditorCompleteStatement)
 
-" -- Code Formatting --
+" ========================================
+"         CODE FORMATTING
+" ========================================
 map <leader>fd <Action>(ReformatCode)
 map <leader>oi <Action>(OptimizeImports)
 map <leader>ra <Action>(RearrangeCode)
 
-" -- Line/Statement Movement --
+" ========================================
+"       LINE / STATEMENT MOVEMENT
+" ========================================
 map <C-k> <Action>(MoveLineUp)
 map <C-j> <Action>(MoveLineDown)
 map <C-i> <Action>(MoveStatementDown)
 map <C-o> <Action>(MoveStatementUp)
 
-" -- File Operations --
+" ========================================
+"            FILE OPERATIONS
+" ========================================
 map <leader>ca <Action>(CopyAbsolutePath)
 map <leader>cn <Action>(CopyFileName)
 map <leader>cp <Action>(CopyContentRootPath)
@@ -132,27 +142,34 @@ map <leader>nd <Action>(NewDir)
 map <leader>re <Action>(RenameFile)
 map <leader>of <Action>(OpenFile)
 
-" -- Editor Management --
+" ========================================
+"         EDITOR MANAGEMENT
+" ========================================
 map <leader>qq <Action>(CloseContent)
 map <leader>qa <Action>(CloseAllEditors)
 map <leader>ef <Action>(SelectInProjectView)
 map <C-s> <Action>:w<CR>
 
-" -- Comments --
+" ========================================
+"            COMMENTS
+" ========================================
 map <leader>cl <Action>(CommentByLineComment)
 map <leader>cb <Action>(CommentByBlockComment)
 
-" -- Configuration --
-map <leader>cc :edit ~/.ideavimrc<cr>
-map <leader>cs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+" ========================================
+"       CONFIGURATION / IDE
+" ========================================
+map <leader>cc :edit ~/.ideavimrc<CR>
+map <leader>cs :source ~/.ideavimrc<CR>:nohlsearch<CR>
 map <leader>ri <Action>(RestartIde)
 
-" -- Run/Debug --
+" ========================================
+"           RUN / DEBUG
+" ========================================
 map <leader>cr <Action>(Run)
 map <leader>cd <Action>(Debug)
 
-" -- Debugging --
-" Breakpoint management
+" Breakpoints
 map <leader>bb <Action>(ToggleLineBreakpoint)
 map <leader>bc <Action>(AddConditionalBreakpoint)
 map <leader>br <Action>(Debugger.RemoveAllBreakpoints)
@@ -167,7 +184,7 @@ map <leader>dj <Action>(StepOver)
 map <leader>dk <Action>(StepInto)
 map <leader>do <Action>(StepOut)
 
-" Debug session management
+" Debug session
 map <leader>dd <Action>(Stop)
 map <leader>dt <Action>(ActivateDebugToolWindow)
 map <leader>dr <Action>(EvaluateExpression)
@@ -176,13 +193,3 @@ map <leader>dl <Action>(Rerun)
 " Debug advanced
 map <leader>df <Action>(Debugger.FocusOnBreakpoint)
 map <leader>dh <Action>(QuickEvaluateExpression)
-
-"" -- Code Actions and Intentions --
-" Show intention actions (equivalent to Alt+Enter)
-map <leader>aa <Action>(ShowIntentionActions)
-
-" -- Layout Management --
-map <leader>ly <Action>(LayoutsGroup)
-map <leader>lt <Action>(ChangeToolWindowLayout)
-map <leader>ls <Action>(StoreNewLayout)
-map <leader>lr <Action>(RestoreDefaultLayout)
